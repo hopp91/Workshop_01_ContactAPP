@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class ContactAPP {
 
@@ -32,6 +33,10 @@ public class ContactAPP {
                         IO.println("All fields are required.");
                     } else {
                         contacts.add(new Contact(name, email, phone));
+                        contacts.sort(Comparator.comparing(
+                                Contact::name,
+                                String.CASE_INSENSITIVE_ORDER
+                        ));
                         IO.println("Contact added successfully!");
                     }
                 }
